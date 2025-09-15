@@ -70,7 +70,13 @@ const connectDb = async () => {
   }
 };
 
-app.use(cors({ origin: process.env.FRONTEND_URL || "https://notes-saas-wueh.vercel.app"}));
+// app.use(cors({ origin: process.env.FRONTEND_URL || "https://notes-saas-wueh.vercel.app"}));
+
+app.use(
+  cors({
+    origin: "*",  // allow all origins
+  })
+);
 app.use(express.json());
 
 // Middleware to ensure a database connection before handling requests
